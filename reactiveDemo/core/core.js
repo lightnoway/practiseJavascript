@@ -11,7 +11,7 @@ function defineReactive(target, key, { getter, setter } = {}) {
   let { get: _getter, set: _setter } = Object.getOwnPropertyDescriptor(target, key) || {};
   _getter = _getter || getter;
   _setter = _setter || setter;
-  let val = target[key];//?val 怎么传进来
+  let val = target[key];//val 怎么传进来?:传参
   const dep = new Dep();
   Object.defineProperty(target, key, {
     get() {
@@ -35,7 +35,7 @@ function computed(target, key, getter) {
     target[key] = watcher.get(getter);
   }
   cb();
-  //? 顺序问题，watcher 顺序？
+  //? 顺序问题，watcher 顺序？避免环调用
 }
 
 module.exports = {

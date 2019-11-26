@@ -6,7 +6,7 @@ class Watcher {
     this.cb = cb;
     this.deps = [];
     this.depIds = new Set();
-    this.newDeps = [];//命名参考
+    this.newDeps = [];//命名参考:deps,depIds
     this.newDepIds = new Set();
   }
   AddDep(dep) {
